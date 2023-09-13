@@ -103,7 +103,7 @@ public class TestController {
 		
 		
 		
-		Resource fileResource =   new FileSystemResource("E:\\hello4.docx");; // Load your file resource here
+		Resource fileResource =   new FileSystemResource("./src/report2.docx");; // Load your file resource here
 		File file = fileResource.getFile();
 	       // Set appropriate headers for the response
 	       org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
@@ -119,14 +119,14 @@ public class TestController {
 	public void conbytoimg(byte[] byt) throws IOException {
 	      ByteArrayInputStream bis = new ByteArrayInputStream(byt);
 	      BufferedImage bImage2 = ImageIO.read(bis);
-	      ImageIO.write(bImage2, "png", new File("E:\\hi.png") );
+	      ImageIO.write(bImage2, "png", new File("./src/pic.png") );
 	}
 	
 	
 
 	
 	public void genreport(List<Vulnerabilityfound> vfoundlist) throws InvalidFormatException, IOException {
-		XWPFDocument document = new XWPFDocument(new FileInputStream(new File("E:\\header2.docx"))); // Create a new document
+		XWPFDocument document = new XWPFDocument(new FileInputStream(new File("./src/header2.docx"))); // Create a new document
 		
 
 		
@@ -382,7 +382,7 @@ public class TestController {
 			XWPFRun run1 = paragraph1.createRun();
 			paragraph1.setIndentFromLeft(250);
 			
-			File image = new File("E:\\hi.png");
+			File image = new File("./src/pic.png");
 			FileInputStream imageData = new FileInputStream(image);
 
 			// Step 5: Retrieving the image file name and image
@@ -427,7 +427,7 @@ public class TestController {
 	      FileOutputStream out;
 			try {
 				
-				out = new FileOutputStream(new File("E:\\hello4.docx"));
+				out = new FileOutputStream(new File("./src/report2.docx"));
 				 
 				document.write(out);
 			      out.close();
